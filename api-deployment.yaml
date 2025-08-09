@@ -28,3 +28,18 @@ spec:
                 configMapKeyRef:
                   name: synergychat-api-configmap
                   key: API_DB_FILEPATH
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: synergychat-api-volume
+              mountPath: /persist
+
+      volumes:
+        - name: synergychat-api-volume
+          persistentVolumeClaim:
+            claimName: synergychat-api-pvc
