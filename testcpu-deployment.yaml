@@ -20,3 +20,4 @@ spec:
           resources:
             limits:
               cpu: "50m"
+  
